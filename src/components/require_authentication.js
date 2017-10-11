@@ -1,4 +1,5 @@
 import React,{Component} from 'react';
+import {connect} from 'react-redux';
 
 
 export default function(ComposedComponent) {
@@ -9,8 +10,11 @@ export default function(ComposedComponent) {
           );
       }
     }
+      function mapStateToProps(state) {
+          return { authenticated: state.authenticated};
+      }
 
-    return Authentication;
+    return connect(mapStateToProps)(Authentication);
 }
 
 
